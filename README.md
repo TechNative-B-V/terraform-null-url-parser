@@ -1,82 +1,42 @@
-> START INSTRUCTION FOR TECHNATIVE ENGINEERS
+# terraform-null-url-parser ![](https://img.shields.io/github/workflow/status/TechNative-B-V/terraform-null-url-parser-name/Lint?style=plastic)
 
-# terraform-aws-module-template
-
-Template for creating a new TerraForm AWS Module. For TechNative Engineers.
-
-## Instructions
-
-### Your Module Name
-
-Think hard and come up with the shortest descriptive name for your module.
-Look at competition in the [terraform
-registry](https://registry.terraform.io/).
-
-Your module name should be max. three words seperated by dashes. E.g.
-
-- html-form-action
-- new-account-notifier
-- budget-alarms
-- fix-missing-tags
-
-### Setup Github Project
-
-1. Click the template button on the top right...
-2. Name github project `terraform-aws-[your-module-name]`
-3. Make project private untill ready for publication
-2. Install `pre-commit`
-
-### Develop your module
-
-1. Develop your module
-2. Try to use the [best practices for TerraForm
-   development](https://www.terraform-best-practices.com/) and [TerraForm AWS
-   Development](https://github.com/ozbillwang/terraform-best-practices).
-
-## Finish project documentation
-
-1. Set well written title
-2. Add one or more shields
-3. Start readme with a short and complete as possible module description. This
-   is the part where you sell your module.
-4. Complete README with well written documentation. Try to think as a someone
-   with three months of Terraform experience.
-5. Check if pre-commit correctly generates the standard Terraform documentation.
-
-## Publish module
-
-If your module is in a state that it could be useful for others and ready for
-publication, you can publish a first version.
-
-1. Create a [Github
-   Release](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)
-2. Publish in the TerraForm Registry under the Technative Namespace (the GitHub
-   Repo must be in the TechNative Organization)
-
----
-
-> END INSTRUCTION FOR TECHNATIVE ENGINEERS
-
-
-# Terraform AWS [Module Name] ![](https://img.shields.io/github/workflow/status/TechNative-B-V/terraform-aws-module-name/Lint?style=plastic)
-
-<!-- SHIELDS -->
-
-This module implements ...
+This module parses a given URL into seperate components.
 
 [![](we-are-technative.png)](https://www.technative.nl)
 
-## How does it work
+## What is it good for?
 
-...
+Say you want to configure an S3 bucket as redirecting website. You can use
+*url-parser* for setting `hostname`, `protocol` and `path` in your
+`routing_rules`.
 
 ## Usage
 
-To use this module ...
+```hcl
+# ...
 
-```json
-{
-  "some_conf": "might need explanation"
+module "target_url" {
+  source = "../terraform-null-url-parser"
+  # you should set a version
+  url    = "https://registry.terraform.io/namespaces/TechNative-B-V"
+}
+
+resource "aws_s3_bucket_website_configuration" "bucket_webconf" {
+  bucket = aws_s3_bucket.route53_http_redirect_bucket.bucket
+
+  index_document {
+    suffix = "index.html"
+  }
+
+  routing_rules = <<EOF
+[{
+    "Redirect": {
+        "Hostname": "${module.target_url.hostname}",
+        "Protocol": "${module.target_url.protocol}",
+        "ReplaceKeyWith": "${module.target_url.path_and_param}"
+    }
+}]
+EOF
 }
 ```
 

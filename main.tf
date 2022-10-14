@@ -1,1 +1,3 @@
-# YOU MAIN CODE HERE
+locals {
+  parsed_url = regex("(?:(?P<protocol>[^:/?#]+):)?(?://(?P<hostname>[^/?#]*))?(?P<path>[^?#]*)(?:\\?(?P<query>[^#]*))?(?:#(?P<anchor>.*))?", var.url)
+}
