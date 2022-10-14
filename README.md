@@ -13,7 +13,6 @@ Say you want to configure an S3 bucket as redirecting website. You can use
 ## Usage
 
 ```hcl
-# ...
 
 module "target_url" {
   source = "../terraform-null-url-parser"
@@ -22,11 +21,8 @@ module "target_url" {
 }
 
 resource "aws_s3_bucket_website_configuration" "bucket_webconf" {
-  bucket = aws_s3_bucket.route53_http_redirect_bucket.bucket
 
-  index_document {
-    suffix = "index.html"
-  }
+  #...
 
   routing_rules = <<EOF
 [{
@@ -38,6 +34,18 @@ resource "aws_s3_bucket_website_configuration" "bucket_webconf" {
 }]
 EOF
 }
+```
+
+This generates:
+
+```
+[{
+    "Redirect": {
+        "Hostname": "registry.terraform.io",
+        "Protocol": "https",
+        "ReplaceKeyWith": "/namespaces/TechNative-B-V"
+    }
+}]
 ```
 
 <!-- BEGIN_TF_DOCS -->

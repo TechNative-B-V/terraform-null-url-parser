@@ -1,1 +1,9 @@
 formatter: "markdown"
+
+sections:
+  hide:
+    - requirements
+    - providers
+    - modules
+    - resources
+
