@@ -1,4 +1,4 @@
-# terraform-null-url-parser ![](https://img.shields.io/github/workflow/status/TechNative-B-V/terraform-null-url-parser-name/Lint?style=plastic)
+# terraform-null-url-parser ![](https://img.shields.io/github/workflow/status/TechNative-B-V/terraform-null-url-parser/Lint?style=plastic)
 
 This module parses a given URL into seperate components.
 
