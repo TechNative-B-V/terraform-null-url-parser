@@ -41,4 +41,37 @@ EOF
 ```
 
 <!-- BEGIN_TF_DOCS -->
+## Requirements
+
+No requirements.
+
+## Providers
+
+No providers.
+
+## Modules
+
+No modules.
+
+## Resources
+
+No resources.
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_url"></a> [url](#input\_url) | URL to parse | `string` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_anchor"></a> [anchor](#output\_anchor) | Anchor component of URL. E.g http://test.com/index.html#second-paragrapth -> 'second-paragraph' |
+| <a name="output_hostname"></a> [hostname](#output\_hostname) | Hostname component of URL. E.g http://dev.test.com -> 'dev.test.com' |
+| <a name="output_parsed_url"></a> [parsed\_url](#output\_parsed\_url) | All URL components as map of strings |
+| <a name="output_path"></a> [path](#output\_path) | Path component of URL. E.g http://test.com/blog/one -> '/blog/one' |
+| <a name="output_path_and_param"></a> [path\_and\_param](#output\_path\_and\_param) | The path, query string and anchor components combined as one string |
+| <a name="output_protocol"></a> [protocol](#output\_protocol) | Protocol component of URL. E.g http://test.com -> 'http' |
+| <a name="output_query"></a> [query](#output\_query) | Query string component of URL. E.g http://test.com/index.html?a=1&b=2 -> 'a=1&b2' |
 <!-- END_TF_DOCS -->
