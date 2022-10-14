@@ -15,14 +15,15 @@ Say you want to configure an S3 bucket as redirecting website. You can use
 ```hcl
 
 module "target_url" {
-  source = "../terraform-null-url-parser"
-  # you should set a version
+  source = "TechNative-B-V/terraform-null-url-parser/null"
+  version = "0.1.0"
+
   url    = "https://registry.terraform.io/namespaces/TechNative-B-V"
 }
 
 resource "aws_s3_bucket_website_configuration" "bucket_webconf" {
 
-  #...
+  ...
 
   routing_rules = <<EOF
 [{
