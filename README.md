@@ -10,6 +10,7 @@ Say you want to configure an S3 bucket as redirecting website. You can use
 *url-parser* for setting `hostname`, `protocol` and `path` in your
 `routing_rules`.
 
+
 ## Usage
 
 ```hcl
