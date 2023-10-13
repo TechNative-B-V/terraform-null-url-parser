@@ -29,7 +29,7 @@ output "anchor" {
 }
 
 output "path_and_param" {
-  description = "The path, query string and anchor components combined as one string"
+  description = "The path, query string and anchor components combined as one string."
   value = "${ local.parsed_url.path != null ? local.parsed_url.path : "" }${ local.parsed_url.query != null ? local.parsed_url.query : "" }${ local.parsed_url.anchor != null ? local.parsed_url.anchor : "" }"
 }
 
