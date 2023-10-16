@@ -72,5 +72,4 @@ No resources.
 | <a name="output_path_and_param"></a> [path\_and\_param](#output\_path\_and\_param) | The path, query string and anchor components combined as one string. |
 | <a name="output_protocol"></a> [protocol](#output\_protocol) | Protocol component of URL. E.g http://test.com -> 'http' |
 | <a name="output_query"></a> [query](#output\_query) | Query string component of URL. E.g http://test.com/index.html?a=1&b=2 -> 'a=1&b2' |
-| <a name="output_url"></a> [url](#output\_url) | n/a |
 <!-- END_TF_DOCS -->
