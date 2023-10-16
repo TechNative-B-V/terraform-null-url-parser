@@ -21,6 +21,7 @@ jobs:
 
     - name: Set up Go
       uses: actions/setup-go@v4
+      cache-dependency-path: "**/*.sum"
       with:
         go-version: '1.21.3'
 
