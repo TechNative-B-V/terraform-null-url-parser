@@ -5,17 +5,17 @@ name: Terratest
 
 on:
   push:
-    branches: 
-      - "*" 
+    branches:
+      - "*"
   pull_request:
-    branches: 
+    branches:
       - "*"
 
 jobs:
 
   terratest:
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v3
 
@@ -24,12 +24,5 @@ jobs:
       with:
         go-version: '1.21.3'
 
-    - name: Init
-      run: go mod init "./test/ec2_test.go"
-    
-    - name: Tidy
-      run: go mod tidy
-
-
     - name: Test
-      run: go test -v ./test/url_parser_test.go
+      run: cd test && go test -v ./test/url_parser_test.go

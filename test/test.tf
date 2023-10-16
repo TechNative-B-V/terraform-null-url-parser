@@ -1,36 +1,7 @@
 module "target_url" {
   source = "../"
-  #version = "0.1.0"
 
-  url    = "https://registry.terraform.io/namespaces/TechNative-B-V"
-}
-
-resource "aws_s3_bucket" "terratestbucket" {
-  bucket = "technative-terratest-test-bucket"
-  
-}
-
-resource "aws_s3_bucket_website_configuration" "terratest" {
-  bucket = aws_s3_bucket.terratestbucket.id
-
-  index_document {
-    suffix = "index.html"
-  }
-
-  error_document {
-    key = "error.html"
-  }
-
-   routing_rules = <<EOF
-[{
-    "Redirect": {
-        "Hostname": "${module.target_url.hostname}",
-        "Protocol": "${module.target_url.protocol}",
-        "ReplaceKeyWith": "${module.target_url.path_and_param}"
-    }
-}]
-EOF
-
+  url    = "https://example.io/namespaces/TechNative-B-V"
 }
 
 output "input_url" {
@@ -38,12 +9,12 @@ output "input_url" {
 }
 
 output "hostname" {
-  
+
   value = module.target_url.hostname
 }
 
 output "protocol" {
-  
+
   value = module.target_url.protocol
 }
 
