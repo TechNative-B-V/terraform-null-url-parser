@@ -4,12 +4,7 @@ module "target_url" {
   url    = "https://example.io/namespaces/TechNative-B-V"
 }
 
-output "input_url" {
-  value = module.target_url.url
-}
-
 output "hostname" {
-
   value = module.target_url.hostname
 }
 

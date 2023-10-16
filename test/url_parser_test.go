@@ -18,8 +18,7 @@ func TestUrl(t *testing.T) {
 
 	terraform.InitAndApply(t, terraformOptions)
 
-//	input_url := terraform.Output(t, terraformOptions, "input_url")
-	input_url := "https://example.io/namespaces/TechNative-B-Vxxx"
+	input_url := "https://example.io/namespaces/TechNative-B-V"
 	output_url := terraform.Output(t, terraformOptions, "output_url")
 
 	assert.Equal(t, input_url, output_url)
