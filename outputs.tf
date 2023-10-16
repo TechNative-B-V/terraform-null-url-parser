@@ -33,3 +33,7 @@ output "path_and_param" {
   value = "${ local.parsed_url.path != null ? local.parsed_url.path : "" }${ local.parsed_url.query != null ? local.parsed_url.query : "" }${ local.parsed_url.anchor != null ? local.parsed_url.anchor : "" }"
 }
 
+output "url" {
+  value = var.url  
+}
+
