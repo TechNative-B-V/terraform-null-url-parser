@@ -1,8 +1,8 @@
 # Changelog.md
 
-## v.0.1.2
+## vNEXT
 
-- merged tflint and terratest actions in a single action containing 2 jobs
+- changed tflint and terratest actions into a single action containing 2 jobs
 - add terratest
 - add testing working...
 

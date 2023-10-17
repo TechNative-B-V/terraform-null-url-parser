@@ -12,6 +12,12 @@ Say you want to configure an S3 bucket as redirecting website. You can use
 *url-parser* for setting `hostname`, `protocol` and `path` in your
 `routing_rules`.
 
+## Release workflow
+
+This repository uses "pre-commit" to ensure consistent documentation. This is accomplished by running "pre-commit" before committing your changes and will then execute the hooks defined in the ".pre-commit-config.yaml" file.
+
+You can install "pre-commit" by running "pip install pre-commit"
+
 
 ## Usage
 
