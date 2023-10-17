@@ -14,7 +14,7 @@ Say you want to configure an S3 bucket as redirecting website. You can use
 
 ## Release workflow
 
-This repository uses [pre-commit](https://pre-commit.com/) to ensure consistent documentation. This is accomplished by running "pre-commit" before committing your changes and will then execute the hooks defined in the [![](.pre-commit-config.yaml)] file.
+This repository uses [pre-commit](https://pre-commit.com/) to ensure consistent documentation. This is accomplished by running "pre-commit" before committing your changes and will then execute the hooks defined in the [`.pre-commit-config.yaml`](.pre-commit-config.yaml) file.
 
 You can install "pre-commit" by running "pip install pre-commit"
 
