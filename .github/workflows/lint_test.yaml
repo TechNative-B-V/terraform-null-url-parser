@@ -50,7 +50,7 @@ jobs:
 
     - name: Download modules
       working-directory: test
-      run: go mod init "ec2_test.go"
+      run: go mod init "url_parser_test.go"
 
     - name: Tidy modules
       working-directory: test
